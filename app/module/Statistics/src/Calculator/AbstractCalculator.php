@@ -16,10 +16,7 @@ abstract class AbstractCalculator implements CalculatorInterface
 
     protected const UNITS = null;
 
-    /**
-     * @var ParamsTo
-     */
-    protected $parameters;
+    protected ParamsTo $parameters;
 
     /**
      * @param ParamsTo $params

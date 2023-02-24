@@ -19,15 +19,9 @@ class SocialPostService
 
     private const DEFAULT_OFFSET = 1;
 
-    /**
-     * @var SocialDriverInterface
-     */
-    private $driver;
+    private SocialDriverInterface $driver;
 
-    /**
-     * @var SocialPostHydratorInterface
-     */
-    private $hydrator;
+    private SocialPostHydratorInterface $hydrator;
 
     /**
      * SocialPostService constructor.
@@ -44,7 +38,7 @@ class SocialPostService
     }
 
     /**
-     * @param FetchParamsTo $fetchParams
+     * @param FetchParamsTo|null $fetchParams
      *
      * @return Traversable
      */
@@ -53,7 +47,7 @@ class SocialPostService
         $fetchParams = $fetchParams ?? $this->getDefaultParams();
 
         for ($index = 0; $index < $fetchParams->getPageLimit(); $index++) {
-            $page = (int)$index + $fetchParams->getPageOffset();
+            $page = $index + $fetchParams->getPageOffset();
 
             $posts = $this->driver->fetchPostsByPage($page);
 

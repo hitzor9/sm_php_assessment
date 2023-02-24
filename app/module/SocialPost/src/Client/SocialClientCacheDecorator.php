@@ -17,20 +17,11 @@ class SocialClientCacheDecorator implements SocialClientInterface
     //TODO: set cache ttl via .env
     private const CACHE_TTL = 60 * 60; //hour
 
-    /**
-     * @var SocialClientInterface
-     */
-    private $fallbackClient;
+    private SocialClientInterface $fallbackClient;
 
-    /**
-     * @var CacheInterface
-     */
-    private $cache;
+    private CacheInterface $cache;
 
-    /**
-     * @var string
-     */
-    private $cachePrefix;
+    private string $cachePrefix;
 
     /**
      * SocialDriverCacheDecorator constructor.
